@@ -1,0 +1,48 @@
+# ESP32-S3 specific settings
+CONFIG_IDF_TARGET="esp32s3"
+
+# PSRAM (8MB OCTAL)
+CONFIG_ESP32S3_SPIRAM_SUPPORT=y
+CONFIG_SPIRAM_MODE_OCT=y
+CONFIG_SPIRAM_SPEED_80M=y
+CONFIG_SPIRAM_FETCH_INSTRUCTIONS=y
+CONFIG_SPIRAM_RODATA=y
+CONFIG_SPIRAM_TRY_ALLOCATE_WIFI_LWIP=y
+
+# SPI RAM malloc - allow malloc() to return PSRAM memory for large allocs
+# This lets LVGL's internal allocator use PSRAM transparently
+CONFIG_SPIRAM_MALLOC_ALWAYSINTERNAL=16384
+
+# Wi-Fi
+CONFIG_ESP_WIFI_STATIC_RX_BUFFER_NUM=4
+CONFIG_ESP_WIFI_DYNAMIC_RX_BUFFER_NUM=16
+CONFIG_ESP_WIFI_DYNAMIC_TX_BUFFER_NUM=16
+
+# HTTP client - disable HTTPS to save flash
+CONFIG_ESP_HTTP_CLIENT_ENABLE_HTTPS=n
+
+# LWIP
+CONFIG_LWIP_MAX_SOCKETS=6
+
+# Main task stack size
+CONFIG_ESP_MAIN_TASK_STACK_SIZE=8192
+
+# FreeRTOS
+CONFIG_FREERTOS_HZ=1000
+
+# Flash size
+CONFIG_ESPTOOLPY_FLASHSIZE_16MB=y
+
+# Partition table - use custom with SPIFFS for fonts
+CONFIG_PARTITION_TABLE_CUSTOM=y
+CONFIG_PARTITION_TABLE_CUSTOM_FILENAME="partitions.csv"
+
+# ---- LVGL Configuration ----
+# NOTE: Run `idf.py menuconfig` -> Component Config -> LVGL Configuration
+# to fine-tune. Key settings to verify:
+#   - Enable Montserrat fonts: 10, 12, 14, 16, 20, 24
+#   - Set default font to Montserrat 14
+#   - Enable UTF-8 text encoding
+#   - Set memory size >= 256KB (LVGL will use PSRAM via malloc)
+#   - Enable scrollbar
+#   - Enable filesystem (for font loading from SPIFFS)
