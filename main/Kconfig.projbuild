@@ -1,0 +1,93 @@
+menu "Browser Configuration"
+
+    config BROWSER_WIFI_SSID
+        string "Wi-Fi SSID"
+        default "MyWiFi"
+
+    config BROWSER_WIFI_PASSWORD
+        string "Wi-Fi Password"
+        default "MyPassword"
+
+    config BROWSER_DEFAULT_URL
+        string "Default URL"
+        default "http://example.com"
+
+    config BROWSER_LCD_SPI_HOST
+        int "SPI Host (1=SPI2, 2=SPI3)"
+        default 2
+
+    config BROWSER_LCD_PIN_CLK
+        int "LCD SPI CLK Pin"
+        default 14
+
+    config BROWSER_LCD_PIN_MOSI
+        int "LCD SPI MOSI Pin"
+        default 13
+
+    config BROWSER_LCD_PIN_MISO
+        int "LCD SPI MISO Pin"
+        default 12
+
+    config BROWSER_LCD_PIN_DC
+        int "LCD DC Pin"
+        default 21
+
+    config BROWSER_LCD_PIN_CS
+        int "LCD CS Pin"
+        default 10
+
+    config BROWSER_LCD_PIN_RST
+        int "LCD RST Pin"
+        default 11
+
+    config BROWSER_LCD_PIN_BL
+        int "LCD Backlight Pin"
+        default 48
+
+    config BROWSER_LCD_WIDTH
+        int "LCD Width"
+        default 480
+
+    config BROWSER_LCD_HEIGHT
+        int "LCD Height"
+        default 320
+
+    config BROWSER_LCD_ROTATION
+        int "LCD Rotation (0, 90, 180, 270)"
+        default 0
+
+    config BROWSER_TOUCH_SDA
+        int "Touch I2C SDA Pin"
+        default 38
+
+    config BROWSER_TOUCH_SCL
+        int "Touch I2C SCL Pin"
+        default 39
+
+    config BROWSER_TOUCH_INT
+        int "Touch Interrupt Pin"
+        default 40
+
+    config BROWSER_TOUCH_ADDR
+        hex "Touch I2C Address"
+        default 0x38
+        help
+            FT6336: 0x38, CST816S: 0x15, GT911: 0x5D or 0x14
+
+    config BROWSER_MAX_HTML_SIZE
+        int "Max HTML size (bytes)"
+        default 262144
+
+    config BROWSER_HTTP_TIMEOUT_MS
+        int "HTTP timeout (ms)"
+        default 15000
+
+    config BROWSER_SKIP_TLS_VERIFY
+        bool "Skip TLS certificate verification"
+        default y
+        help
+            When enabled, HTTPS connections will not verify the server
+            certificate. Useful for self-signed certs on local networks.
+            Disable for production use with trusted CAs.
+
+endmenu
