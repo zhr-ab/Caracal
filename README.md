@@ -145,7 +145,7 @@ caracal/
 ### 第 1 步 — 获取源码
 
 ```bash
-git clone <your-repo-url> caracal
+git clone https://github.com/zhr-ab/Caracal.git caracal
 cd caracal
 ```
 
