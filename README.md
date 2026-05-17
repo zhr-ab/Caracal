@@ -19,7 +19,7 @@ ESP32-S3 增强型轻量 HTML 浏览器 —— 在 [Caracal](../esp32-browser/) 
 | 主任务栈 | 8 KB | 16 KB |
 | PSRAM 占用 | ~1 MB | ~1.5 MB |
 
-如果你的场景仅需 HTTP 局域网页面，推荐使用更轻量的 [Caracal 基础版](..)。
+如果你的场景仅需 HTTP 局域网页面，推荐使用更轻量的 [Caracal 基础版](https://github.com/zhr-ab/Caracal/)。
 
 ---
 
